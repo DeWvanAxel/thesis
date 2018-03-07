@@ -13,14 +13,14 @@ Dus probeer elk stapje van je proces/plan te koppelen aan een vraag/deelvraag zo
 
 
 ## overview
-1. **Abstract**    Nice and well wroitten. However it is not clear with WHAT you will label the documents, and why. 
+1. **Abstract**    ~~Nice and well written. However, it is not clear with WHAT you will label the documents, and why. ~~
 2. **RQ's**  Good. Ik zou ze wel wat breder trekken: bijvoorbeeld niet neuraal vs neuraal. Dan kan je bijv ook SVM meenemen wat wat al wat beter werkt dan NB. Probleem is natuurlijk wel je evaluatie op de gemeente data. Want je hebt geen gouden data daar! 
 	* Tobias kijkt naar transfer learning. Dat zou voor jou ook relevant kunen zijn. 
 	* Een andere leuke en zeer gerelateerde vraag is om eens te kijken hoe taal/woordgebruik per label veranderd door de tijd. Als dat zo is geeft het al aan hoe lastig jouw taak is, want jij gaat ook nog eens naar een ander domein overschakelen. 
 		* Dit is redelijk eenvoudig te onderzoeken (bijv je neemt maar een paar labels, en vergelijkt test/train op willekeurig gehusselde data met train op oude, test op nieuwe data).
 3. **Related work**    Prima, maar je gaat hier wel erg op de methodes in, die kunnen beter naar de volgende sectie. Ik zou toch nog wat meer over multi-labels schrijven (want dat wil je doen), en ook over verschillende text clasificatie methodes. 
 	* Het is goed dat je uitgebreid beschrijft hoe je de woordvectoren dan wilt gaan toepassen. Alleen zie ik nog niet hoe je die technieken die voor heel korte tekstjes zijn gemaakt (zinnen) nu gaat toepassen voor lange teksten. 
-	* Een deelvraag zou ook kunne zijn om juist minder data te gebruiken voor je classifier (bijv alleen de titel en eerste paragraaf). Vaak werkt dit zelfs beter. Zie ook het artikel van Azerbonyad in ECIR over politieke tekst classificatie. 
+	* ~~Een deelvraag zou ook kunne zijn om juist minder data te gebruiken voor je classifier (bijv alleen de titel en eerste paragraaf).Vaak werkt dit zelfs beter.~~  Zie ook het artikel van Azerbonyad in ECIR over politieke tekst classificatie. 
 4.  **Methodology** 
 	 * Looks solid. 
 	 * Voro de word vectoren kan je ook denken aan al bestaande vectoren voor het nederlands (heeft Google die niet ook?). Ik heb ook veel parlementaire data waarop je zou kunnen trainen. Hier geldt natuurlijk: hoe meer hoe beter.
