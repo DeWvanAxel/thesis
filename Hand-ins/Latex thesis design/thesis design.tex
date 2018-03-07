@@ -34,7 +34,7 @@ A comparison between Naive Bayes and CNN's} % your title
 \maketitle
 
 \begin{abstract}
-The municipalities within the Netherlands produce a large amount of official documents. However, the content of these documents often remain unlabelled. This research is aimed at alleviating this problem using Machine Learning, however, there is no training data available with documents of the local municipalities. Therefore a training set of the central government is used as training data.\\
+The municipalities within the Netherlands produce a large amount of official documents. Labelling this data with official labels of the government makes the documents more accessible and searchable, especially for users unfamiliar with the data. However, the content of these documents often remain unlabelled. This research is aimed at alleviating this problem using Machine Learning, however, there is no training data available with documents of the local municipalities. Therefore a training set of the central government is used as training data.\\
 This research contains a comparable studies between two methodologies of categorizing the data. The first method is a Naive Bayes implementation using bag-of-words to categorize the data. Secondly, a convolutional neural network using Word2Vec is used for categorizing the data. Both algorithms are first trained and tested on the data of the central government, and then a final evaluation is done on a manually labelled test set of the municipalities.
 \end{abstract}
 
@@ -51,6 +51,7 @@ Do convolutional neural networks outperform Naive Bayes on classifying the conte
 \begin{enumerate}
 \item How does the amount of topics influence their performance?
 \item Since many documents are multi-labelled, what threshold should be used to select relevant categories?
+\item How does the amount of words within the documents influence the performance of both algorithms?
 \end{enumerate}
 \item How well do both algorithms generalize their classification on a set of documents of Dutch municipalities?
 \end{enumerate}
