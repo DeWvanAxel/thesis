@@ -26,7 +26,7 @@ Dus probeer elk stapje van je proces/plan te koppelen aan een vraag/deelvraag zo
 	 * Voro de word vectoren kan je ook denken aan al bestaande vectoren voor het nederlands (heeft Google die niet ook?). Ik heb ook veel parlementaire data waarop je zou kunnen trainen. Hier geldt natuurlijk: hoe meer hoe beter.
 	 * Kan je geen data dump van Breyten krijgen? Dan heb je alles bij elkaar! 
 	 * Voro word2vec wordt meestal geen preprocessing gebrukt. Trowuens , lemmatizers maken best veel fouten op de gekke woorden in politieke docs! Misschien hoeft dat helemaal niet als je word2vec gebrukt! 
-	 * Je zou toch prima op de Utrecht data set kunnen werken? Daar kan je je makkelijk beperken tot 1-topic docs (moties, vragen). Je bent daar toch ook geweest? Hebben ze niet meer data, en ook metadata? Of willen ze misschien helpen met labellen? Als je Utrecht data gebruikt kun je allicht redelijk eenvoduig een title of eerste paragraaf uit het document halen. Ook uit hun metadata kan je al veel halen.
+	 * ~~Je zou toch prima op de Utrecht data set kunnen werken? Daar kan je je makkelijk beperken tot 1-topic docs (moties, vragen). Je bent daar toch ook geweest? Hebben ze niet meer data, en ook metadata? Of willen ze misschien helpen met labellen? Als je Utrecht data gebruikt kun je allicht redelijk eenvoduig een title of eerste paragraaf uit het document halen. Ook uit hun metadata kan je al veel halen.~~
 5. **Risk**
 	*  Heel goed! En allemaal oplosbaar. 
 6. **planning**
