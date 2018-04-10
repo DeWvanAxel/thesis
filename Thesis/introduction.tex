@@ -1,0 +1,45 @@
+\section{Introduction}
+\label{sec:intro}
+Text classification is considered as one of the most important challenges within natural language processing. Classifying documents is vital, as it enables users to easily query and retrieve useful information. Moreover, it allows the automization of many processes such as spam classification and sentiment analysis. Given the wide variety of application, many algorithms have been developed to tackle the problem \cite{aggarwal2012survey}.\\
+Bayesian Classifiers are considered a class of classification algorithms, and they classify document based on word occurences within documents. This word presence is used to calculate the probality that certain documents are part of a topic. The two prominent versions of bayesian classifiers are multi-variate Bernoulli models and multinomial models. Another widely used class of text classificatiers are support vector machines (SVM). Within SVM the algorithm creates linear hyperplanes which split the data into classes based on a bag-of-words representation of texts. Using kernel tricks hyperplanes can be constructed which can find more compex relations than linear  \cite{aggarwal2012survey}.\\
+Recently, deep neural networks have been employed on classification problems as well. Most notably convolutional neural nets (CNN) have outperformed other methods on baseline classification problems. CNN have been generaly been used on image data, but research in word and document embedding spaces such as Word2Vec \cite{mikolov2013efficient} and Paragraph2Vec \cite{le2014distributed} allow the use of CNN on text as well. Transforming words within documents into a multi-dimensional vectors allows the use of convolutional filters, which shift over the documents and detect patterns within documents \cite{kim2014convolutional}.\\
+In contrast to many of the baseline challenges within text classification, real-world application of classification often involves other challenges as well. Within this research documents of Dutch municipalities are classified, which is a difficult task due to three properties. Firstly, no labelled training data is available, which means that training needs to be done on data from the central document. Secondly, many of the documents are multi-topic and it is interesting to discuss how well algorithms deal with this. Thirdly, within classes a large variety of documents exist, as the documents differ in length and style. The research question and subquestions are thus:\\
+\begin{itemize}
+\item How well does CNN perform on classifying Dutch municipality documents compared to SVM and Bayesian Classifiers? 
+\begin{itemize}
+\item How does the detail of topics influence the performances of all algorithms?
+\item What thresholds are optimal in detecting topics of multi-labeled documents.
+\item How well do the performances of the algorithms on the dataset of the central government generalize to the dataset of the municipalities?
+\item How can all algorithms be optimized to deal with the large in-class variety of the topics?
+\item What are the characteristics of misclassified documents?
+\end{itemize}
+\end{itemize}
+Within the next chapter, the literature review, current approaches to the mentioned challenges and the general idea behind the algorithms is further explained. Then the specific set-up for this research is discussed within the methodology, which also provides information on how the research questions are answered. The results of this research is described next, and provides a detailed overview of the performance of all algorithms with various evaluation metrics. Lastly, the answers to the research questions are formulated and the conclusions from this article are discussed.
+
+%\begin{itemize}
+%\item Bevat je onderzoeksvraag (of vragen)
+%\item Plaatst je vraag in de bestaande literatuur.
+%\end{itemize}
+%
+%Je onderzoeksvraag is leidend voor je hele scriptie. Alles wat je doet moet uiteindelijk terug te voeren zijn op 1 doel: het beantwoorden van die vraag. 
+%
+%Typisch zal je het dan ook zo doen:
+%
+%Mijn onderzoeksvraag is onderverdeeld in de volgende deelvragen:
+%
+%\begin{description}
+%\item[RQ1] \ldots We   beantwoorden deze vraag  door het volgende te doen/ antwoord op de volgende vragen te vinden/ \ldots
+%\begin{enumerate}
+%\item Vragen op dit niveau kan je echt beantwoorden, en dat doe je in je Evaluatie sectie\ref{sec:eva}.
+%\end{enumerate}
+%\item[RQ2] \ldots
+%\item[RQ3] \ldots
+%\end{description}
+%%
+%Je Evaluatie sectie \ref{sec:eva} bevat evenveel subsecties als je deelvragen hebt. En in elke sectie beantwoord je dan die deelvraag met behulp van de vragen op het onderste niveau.
+%
+%In je conclusies kan je dan je hoofdvraag gaan beantwoorden op basis van al het eerder vergaarde bewijs.
+%
+%
+%\paragraph{Overview of thesis}
+%Hier geef je even kort weer wat in elke sectie staat.
