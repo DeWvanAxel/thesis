@@ -7,6 +7,7 @@
 6. Scrapen van gemeentes lukt niet door een fout van OSF, daar werken ze aan.
 
 HIER KOMT TABEL VAN SCORES, MEE BEZIG; VANMIDDAG AF, misschien niet met alle kleine topics alleen
+
 | Acurracy    | amount_topics=18 | amount_topics=112 |
 |-------------|------------------|-------------------|
 | CNN         | 0.72             |                   |
