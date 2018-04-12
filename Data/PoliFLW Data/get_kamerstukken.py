@@ -157,12 +157,12 @@ def find_category_and_text_from_kamerstuk_url(kamerstuk_url):
 
 
 def write_results_to_json(result):
-    with open('data_resources/topics/kamerstukken/kamerstukken_topics.json', 'w') as outfile:
+    with open('kamerstukken_topics_2016.json', 'w') as outfile:
         json.dump(result, outfile)
 
 
 def get_already_saved_kamerstukken():
-    file = 'data_resources/topics/kamerstukken/kamerstukken_topics.json'
+    file = 'kamerstukken_topics_first.json'
     data = json.load(open(file))
     return data
 
