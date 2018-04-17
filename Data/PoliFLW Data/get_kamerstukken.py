@@ -157,7 +157,7 @@ def find_category_and_text_from_kamerstuk_url(kamerstuk_url):
 
 
 def write_results_to_json(result):
-    with open('kamerstukken_topics_2016.json', 'w') as outfile:
+    with open('kamerstukken_topics_test.json', 'w') as outfile:
         json.dump(result, outfile)
 
 
@@ -213,6 +213,7 @@ def main(args):
         datum_weekeind = datum_curr + datetime.timedelta(days=days_between)
         datumeind = datum_weekeind.strftime('%Y%m%d')
         par = what_to_par[args[2]]
+        print(par)
         zoek = what_to_vrt[args[2]]
         url = (
                 'https://zoek.officielebekendmakingen.nl/zoeken/resultaat/'
@@ -221,6 +222,7 @@ def main(args):
                 '&kmr=TweedeKamerderStatenGeneraal&sdt=KenmerkendeDatum&par=' +
                 par + '&dst=Opgemaakt%7cOpgemaakt+na+onopgemaakt&isp=true&pnr=1&'
                       'rpp=10&_page=1&sorttype=1&sortorder=4')
+        print(url)
         status_code, content = fetch_ao_url(url)
         logger.info('%s: %s' % (url, status_code,))
 

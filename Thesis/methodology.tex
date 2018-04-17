@@ -3,37 +3,67 @@
 
 
 \subsection{Description of the data}
-Data verzameling en beschrijving van de data
+The data used within this project consist of two types of data, both from the government of the Netherlands. The first set consists of over 20,000 questions aksed within the Dutch national parliament each annotated with two labels. One of the 17 broad labels, such as healthcare or education, and one of the 118 more detailed labels, such as elderly healthcare or primary education. Figure \ref{fig:TrainLabels17} and \ref{fig:TrainLabels118} show the distribution of topics within the dataset. These questions also vary in length, as can be seen in Figure \ref{fig:TrainAmount}. The questions are collected from www.zoek.officielebekendmakingen.nl with a scraper and the set consist of all question asked in 2016 and 2017. \\
 
-Hoe is de data verzameld, en hoe heb jij die data verkregen?
-
-
-Wat staat er in de data? Niet alleen maar een technisch verhaal, maar ook inhoudelijk. DE lezer moet een goed idee krijgen over de technische inhoud en wat het betekent.
-
-\pagebreak
-\subsection{Wat plotjes en tabelletjes}
-
-Zie het IPython Notebook \url{PandasAndLatex.ipynb} voor de code om vanuit pandas een poltje op te slaan en een dataframe als tabel op te slaan. Het werkt ideaal! 
-
-De interrupties van Wilders staan beschreven in Figure~\ref{fig:wilders} en Tabel~~\ref{tab:Wilders}.
-
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=\linewidth]{WildersPlot.png}
-\caption{\label{fig:wilders} Aantal interrupties van Wilders in de Tweede Kamer door de tijd (periode 2012-2016).}
-\end{center}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+  		\centering
+  		\includegraphics[width=.9\linewidth]{TrainLabels17}
+  		\caption{Distribution of the 17 broad topics}
+  		\label{fig:TrainLabels17}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+  		\centering
+  		\includegraphics[width=.9\linewidth]{TrainLabels17}
+  		\caption{Distribution of the 118 specific topics}
+  		\label{fig:TrainLabels118}
+	\end{subfigure}
+	\caption{Distribution of topics within the train data}
+	\label{fig:distributiontopics}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=.9\linewidth]{TrainAmountWords}
+  	\caption{Box plots of the amount of words, unique words and characters within the train data.}
+  	\label{fig:TrainAmount}
+\end{figure}
 
-\pagebreak
+The second part of the data is dat of municipalities retrieved from www.openraadsinformatie.nl.
 
-\begin{table}[h]
-\begin{footnotesize}
-\input{WildersTable}
-\end{footnotesize}
-\caption{\label{tab:Wilders} Door wie werd Wilders onderbroken en hoe vaak per debat.}
-\end{table}
+
+%Data verzameling en beschrijving van de data
+
+%Hoe is de data verzameld, en hoe heb jij die data verkregen?
+
+
+%Wat staat er in de data? Niet alleen maar een technisch verhaal, maar ook inhoudelijk. DE lezer moet een goed idee krijgen over de technische inhoud en wat het betekent.
+
+%\pagebreak
+%\subsection{Wat plotjes en tabelletjes}
+
+%Zie het IPython Notebook \url{PandasAndLatex.ipynb} voor de code om vanuit pandas een poltje op te slaan en een dataframe als tabel op te slaan. Het werkt ideaal! 
+
+%De interrupties van Wilders staan beschreven in Figure~\ref{fig:wilders} en Tabel~~\ref{tab:Wilders}.
+
+
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=\linewidth]{WildersPlot.png}
+%\caption{\label{fig:wilders} Aantal interrupties van Wilders in de Tweede Kamer door de tijd (periode 2012-2016).}
+%\end{center}
+%\end{figure}
+
+
+%\pagebreak
+
+%\begin{table}[h]
+%\begin{footnotesize}
+%\input{WildersTable}
+%\end{footnotesize}
+%\caption{\label{tab:Wilders} Door wie werd Wilders onderbroken en hoe vaak per debat.}
+%\end{table}
 
 
 \pagebreak
