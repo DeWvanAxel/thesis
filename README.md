@@ -16,8 +16,10 @@ c. Cutting up sentences into smaller parts and classifying each individual part,
 9. Written introduction
 10. classified handfull of data within test set of openraadsinformatie
 
+# Finished at 30-4
+1. Loading in enough data from 2000 untill now.
+
 # Short term goals
-1. Loading in enough data, preferably from 2000 untill now. 9000 is just not enough.
 2. Retraining of all baselines with parameter optimalization
 3. Retraining of CNN's without parameter optimalization
 4. Writing literature review and methodology
@@ -35,7 +37,7 @@ c. Cutting up sentences into smaller parts and classifying each individual part,
 # Timeline
 | Week         | Finish                                                                                                             |
 |--------------|--------------------------------------------------------------------------------------------------------------------|
-| 23/4-29/4    | Load in all data, create overview of that data, and save it in pre-processed, final form                           |
+| 23/4-29/4    | ~~Load in all data, create overview of that data, and save it in pre-processed, final form~~                       |
 | 30/4-6/5     | Re-test baselines with all data, write that down in tables, never touch them again                                 |
 |              | Re-test CNNs and re-evaluate what priorities and goals are, is beating baselines possible?                         |
 |              | Writing literature review and methodology                                                                          |
