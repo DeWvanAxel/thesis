@@ -16,16 +16,16 @@ c. Cutting up sentences into smaller parts and classifying each individual part,
 9. Written introduction
 10. classified handfull of data within test set of openraadsinformatie
 
-# Finished at 30-4
+# Finished at 31-5
 1. Loading in enough data from 2000 untill now.
+2. Retraining of all baselines with parameter optimalization
 
 # Short term goals
-2. Retraining of all baselines with parameter optimalization
 3. Retraining of CNN's without parameter optimalization
 4. Writing literature review and methodology
 
 # Longer term goals
-1. Other implementation of CNNs such as par2vec and pooling layers for long sentences
+1. Other implementation of CNNs with par2vec for long sentences
 2. Parameter optimalization, such as filter sizes, aggregation methods, activation functions, loss functions
 3. Own Word2Vec implementation with specialized corpus, and checks how that contributes to metrics
 4. Contribute to OpenState implementation
@@ -38,7 +38,7 @@ c. Cutting up sentences into smaller parts and classifying each individual part,
 | Week         | Finish                                                                                                             |
 |--------------|--------------------------------------------------------------------------------------------------------------------|
 | 23/4-29/4    | ~~Load in all data, create overview of that data, and save it in pre-processed, final form~~                       |
-| 30/4-6/5     | Re-test baselines with all data, write that down in tables, never touch them again                                 |
+| 30/4-6/5     | ~~Re-test baselines with all data, write that down in tables, never touch them again~~                             |
 |              | Re-test CNNs and re-evaluate what priorities and goals are, is beating baselines possible?                         |
 |              | Writing literature review and methodology                                                                          |
 | 7/5-13/5     | Par2vec and pre-pooling as solutions for long documents                                                            |
