@@ -19,11 +19,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{apacite}
-
-% linenumbering  See https://texblog.org/2012/02/08/adding-line-numbers-to-documents/
-\usepackage{lineno}
-\linenumbers
-
+\usepackage{stackengine}
 
 \begin{document}
 
@@ -32,8 +28,6 @@
 
 \pagebreak
 
-\todototoc
-\listoftodos
 \tableofcontents
 
 \pagebreak
@@ -55,22 +49,22 @@
 
 % Here you input all your sections in seperate files
 
-\include{introduction}
-\include{related_work}
-\include{methodology}
-\include{evaluation}
-\include{conclusions}
+\input{introduction}
+\input{related_work}
+\input{methodology}
+\input{evaluation}
+\input{conclusions}
 
 % your refs
 
 \bibliographystyle{apacite}
 \bibliography{MyThesis}
 
-\appendix
+
 
 %\input{appendix}
 
-\section{Slides}
+
 
 % Example
 %\includepdf[nup=2x3 , pages=-]{sargent-lecture_slides.pdf}

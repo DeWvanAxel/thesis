@@ -10,6 +10,9 @@ import requests
 
 import logging
 
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 logger = logging.getLogger('blaat')
 # logger.setLevel(level=logging.INFO)
 
@@ -128,9 +131,6 @@ def find_kamerstukken(content, url, what, saved_kamerstukken_urls):
         cur_page = next_page
         urls.append(new_url)
     # urls = [a['href'] for a in paginering.findAll('a')]
-
-    print(len(urls))
-
     return kamerstukken, urls
 
 
@@ -138,12 +138,14 @@ def find_category_and_text_from_kamerstuk_url(kamerstuk_url):
     statuscode, content = fetch_ao_url(kamerstuk_url)
     soup = BeautifulSoup(content, "lxml")
 
-    meta = soup.find('meta', attrs={'name': 'OVERHEID.category'})
+    meta = soup.find_all('meta', attrs={'name': 'OVERHEID.category'})
     if meta:
-        category = meta['content']
+        category = []
+        for met in meta:
+            category.append(met['content'])
     else:
-        category = 'NOCAT'
-
+        category = []
+    
     content = soup.find("div", {"id": "broodtekst"})
     if content:
         content_html = content.get_text()
@@ -157,12 +159,12 @@ def find_category_and_text_from_kamerstuk_url(kamerstuk_url):
 
 
 def write_results_to_json(result):
-    with open('kamerstukken_topics_test.json', 'w') as outfile:
+    with open('kamerstukken_nieuw.json', 'w') as outfile:
         json.dump(result, outfile)
 
 
 def get_already_saved_kamerstukken():
-    file = 'kamerstukken_topics_first.json'
+    file = 'kamerstukken_nieuw.json'
     data = json.load(open(file))
     return data
 
@@ -186,7 +188,7 @@ def main(args):
     what_to_par = {
         'ao': 'Kamerstuk',
         'kamervragen': (
-            'Aanhangsel+van+de+Handelingen%7cKamervragen+zonder+antwoord')
+            'Aanhangsel+van+de+Handelingen')
     }
 
     what_to_vrt = {
@@ -194,8 +196,9 @@ def main(args):
         'kamervragen': ''
     }
     all_kamerstukken_urls = []
-    saved_kamerstukken = get_already_saved_kamerstukken()
-    saved_kamerstukken_urls = [kamerstuk['url'] for kamerstuk in saved_kamerstukken]
+    saved_kamerstukken = []
+    #saved_kamerstukken = get_already_saved_kamerstukken()
+    saved_kamerstukken_urls = []# [kamerstuk['url'] for kamerstuk in saved_kamerstukken]
 
     # year = int(args[0])
     # week = int(args[1])
@@ -208,21 +211,21 @@ def main(args):
     days_between = int(args[3])
 
     datum_curr = datum_start
+    print("find")
     while (datum_curr < datum_eind):
         datumstart = datum_curr.strftime('%Y%m%d')
         datum_weekeind = datum_curr + datetime.timedelta(days=days_between)
         datumeind = datum_weekeind.strftime('%Y%m%d')
         par = what_to_par[args[2]]
-        print(par)
         zoek = what_to_vrt[args[2]]
         url = (
                 'https://zoek.officielebekendmakingen.nl/zoeken/resultaat/'
                 '?zkt=Uitgebreid&pst=ParlementaireDocumenten&' + zoek +
                 'dpr=AnderePeriode&spd=' + datumstart + '&epd=' + datumeind +
-                '&kmr=TweedeKamerderStatenGeneraal&sdt=KenmerkendeDatum&par=' +
+                '&kmr=EersteKamerderStatenGeneraal%7cTweedeKamerderStatenGeneraal%7cVerenigdeVergaderingderStatenGeneraal&'
+                'sdt=KenmerkendeDatum&par=' +
                 par + '&dst=Opgemaakt%7cOpgemaakt+na+onopgemaakt&isp=true&pnr=1&'
                       'rpp=10&_page=1&sorttype=1&sortorder=4')
-        print(url)
         status_code, content = fetch_ao_url(url)
         logger.info('%s: %s' % (url, status_code,))
 
@@ -245,13 +248,22 @@ def main(args):
         datum_curr = datum_curr + datetime.timedelta(days=(days_between + 1))
 
     all_kamerstukken_urls_clean = list(set(all_kamerstukken_urls))
+    print("collect")
+    with open('kamerstukken_nieuw.json', 'w') as outfile:
+        
+        for kamerstuk_url, i in zip(all_kamerstukken_urls_clean, range(len(all_kamerstukken_urls_clean))):
+            category, content = find_category_and_text_from_kamerstuk_url(kamerstuk_url)
+            saved_kamerstukken.append({'url': kamerstuk_url, 'category': category, 'content': content})
+            if i % round(len(all_kamerstukken_urls_clean)/10) == 0:
+                print("10 percent wohohohooho")
+            if i % round(len(all_kamerstukken_urls_clean)/100) == 0:
+                json.dump(saved_kamerstukken, outfile)
+                saved_kamerstukken = []
+                print("print next 1 percent")
 
-    for kamerstuk_url in all_kamerstukken_urls_clean:
-        category, content = find_category_and_text_from_kamerstuk_url(kamerstuk_url)
-        saved_kamerstukken.append({'url': kamerstuk_url, 'category': category, 'content': content})
-
-    print(len(saved_kamerstukken))
-    write_results_to_json(saved_kamerstukken)
+    
+    print("write")
+    #write_results_to_json(saved_kamerstukken)
 
 
 if __name__ == '__main__':
